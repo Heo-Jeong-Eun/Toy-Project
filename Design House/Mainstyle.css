@@ -1,0 +1,95 @@
+* { /* 공백 제거를 위해 초기화 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* box-size의 속성값이 기본적으로 content-box로 되어있다. 원활한 width와 heigth 계산을 위해 border로 초기화 해주면 좋다. */
+}
+
+/* font file 참조 : 사용하려는 font를 지원하지 않을 때 파일을 직접 css파일에 참조해서 사용할 수 있는 방법이다. */
+@font-face {
+    font-family: abster;
+    src: url(font/abster-webfont.woff) format('woff');
+}
+
+.container {
+    width: 100%;
+    height: 100vh; /* 단위 vh 사용 이유 : height는 실제로 100%을 가질 수 없다. 100%이 되기 위해서는 번거로운 과정이 필요하므로 확실한 viewport 단위인 vh가 정확하다. */
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),url(images/room.jpg);
+    /* css에서 gradient는 한 방향에서 다른 방향으로 색이 흐려지거나, 변화하는 효과를 줄 때 쓰는 속성이다. */
+    /* css gradient는 색상이 아닌, 크기가 없는 이미지이다. */
+    /* background 속성, 배경 전체 지정을 의미한다. */
+    /* rgba() 함수 : rgb -> red, green, blue, a -> alpha(투명도 조절, 0으로 갈수록 투명), url() 함수 : 이미지 경로를 추가한다. */
+    /* linear-gradient의 효과로 url의 images 위에 검은색 불투명한 image가 마스크 레이어가 씌워진 것처럼 보이게 된다. */ 
+}
+
+.container .header {
+    width: 80%;
+    height: 80px;
+    margin: 0 auto; /* 위 아래 여백 없이 가로 중앙에 배치되는 가장 기본적 서식, 요소를 수평 기준 중앙으로 오게 한다. */
+    align-items: center; /* 중앙 정렬 */
+    display: flex; 
+    justify-content: space-between; /* flex item을 main axis를 기준으로 어떻게 정렬할지 결정한다. */
+    /* 이 요소가 항상 좌우 끝으로 붙어서 출력 되도록 한다. */
+    /* heaer class의 내부가 h1과 nav 2개의 영역으로 나뉘어져 있는데, space-between 떄문에 h1은 왼쪽에 nav는 오른쪽에 붙게 된다. */ 
+
+    /* 이 전체 영역은 width 80으로 제한되어 있고, 제한된 영역을 수평 기준으로 중앙에 오도록 하는 것이 margin 0 auto이다. */ 
+}
+
+.container .header h1 a {
+    text-decoration: none; /* text-decoration : text 주변에 선을 넣을 때 사용하는 속성 */
+    color: white;
+    font-family: abster;
+}
+
+.container .nav ul li {
+    display: inline-block; /* 가로 정렬 */
+    margin: 0 10px;
+    color: white;
+}
+
+.container .nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.container .nav ul li a:hover {
+    color: #1fdfdf;
+}
+
+.container .hero {
+    position: absolute; /* 부모요소를 기준으로 배치, 위치상 부모 요소를 말한다. */
+    /* */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* 다음과 같이 설정하면 해당 선택자의 요소는 항상 중앙에 위치하게 된다. */
+
+    color : white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
+
+.container .hero h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.container .hero p {
+    font-size: 22px;
+}
+
+.container .hero button {
+    background: none;
+    border: 2px solid darkseagreen;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 20px; /* 테두리가 라운드로 변경이 된다. */ 
+    margin-top: 30px;
+    outline: none; /* 클릭 시 잔상을 없애준다. */ 
+    cursor: pointer; /* 커서가 보일 수 있도록 해준다. */
+    transition: all 0.4s; /* 입체적인 animation 효과를 주기 위해서 transition 속성을 추가, 0.4s의 delay 시간을 추가한다. */
+}
+
+.container .hero button:hover { /* 마우스를 버튼에 올렸을 때 배경을 변하게 하기 위해 설정 */
+    background-color: darkslategray;
+}
