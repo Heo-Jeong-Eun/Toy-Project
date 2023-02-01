@@ -1,7 +1,7 @@
-const crypto = require('crypto');
+const bcrypt = require("bcrypt");
 
 module.exports = (password) => {
-  const hash = crypto.createHash('sha1');
+  const hash = bcrypt.createHash("sha1");
   hash.update(password);
   return hash.digest("hex");
 }
