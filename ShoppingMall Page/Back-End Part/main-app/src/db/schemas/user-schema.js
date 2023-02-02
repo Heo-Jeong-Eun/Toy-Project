@@ -1,7 +1,7 @@
 // signup-schema
 
 import { Schema } from "mongoose";
-import { shortId } from "./types/short-id";
+import { shortId } from "./types/short-id.js";
 
 const UserSchema = new Schema (
     {   
@@ -25,7 +25,16 @@ const UserSchema = new Schema (
             type: String,
             minlength: 8, // 최소 비밀번호 길이 지정
             required: true,
-        }
+        },
+        role: { // 사용자 권한
+            type: String,
+            required: false,
+            default: 'basic-user',
+        },
+    },
+    {
+        collection: 'users',
+        timestamps: true,
     }
 );
 

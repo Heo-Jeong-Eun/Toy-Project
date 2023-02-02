@@ -1,4 +1,4 @@
-import { userModel } from '../db';
+import { userModel } from '../db/models/user-model.js';
 
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -23,7 +23,7 @@ class UserService {
         }
         
         // 비밀번호 암호화
-        const hashedPassword = await bcrypt.hash(password, 8);
+        const hashedPassword = await bcrypt.hash(userPassword, 8);
     
         const newUserInfo = { 
             userName, 
