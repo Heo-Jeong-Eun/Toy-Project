@@ -1,0 +1,51 @@
+.slick-slider {
+  margin-top: 70px;
+  height: 700px;
+  width: 100%;
+  left: 50%;
+  top: 380px;
+  transform: translate(-50%, -50%);
+}
+.slick-list {
+  height: 100%;
+}
+.slick-track {
+  height: 100%;
+}
+.slick-slide {
+  cursor: pointer;
+}
+.slick-prev {
+  left: 20px;
+}
+.slick-next {
+  right: 20px;
+}
+.slick-arrow {
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+    transform: translate(0, -100px);
+    z-index: 2;
+}
+
+.category {
+  color: #2c3b96;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-align: center;
+  pointer-events: none;
+}
+.categoryImg {
+  width: 300px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.categoryContainer :hover {
+  filter: blur(10px);
+}
