@@ -7,7 +7,6 @@ import jwt from 'jsonwebtoken';
 const userRouter = Router();
 // 회원 가입 API
 userRouter.post('/user/signup', async (req, res, next) => {
-  console.log('Test !!!!!');
   try {
     // if (is.emptyObject(req.body)) {
     //     throw new Error(
@@ -19,6 +18,7 @@ userRouter.post('/user/signup', async (req, res, next) => {
 
     const { userName, userEmail, userPassword, role } = req.body;
     // console.log('회원가입이 되었습니다.', role);
+    
     // data를 db에 추가
     const newUser = await userService.addUser({
       userName,
@@ -27,8 +27,8 @@ userRouter.post('/user/signup', async (req, res, next) => {
       ...(role && { role }),
     });
 
-    //res.status(201).json(newUser);
-    res.status(300).json({ message: 'OK!' });
+    res.json(newUser);
+    // res.status(200).json({ message: 'OK!' });
   } catch (e) {
     next(e);
   }
@@ -44,11 +44,11 @@ userRouter.post('/user/login', async function (req, res, next) {
     // }
 
     // req에서 data 가져오기
-    const email = req.body.email;
-    const password = req.body.password;
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
 
     // login 진행, 로그인 성공 시 jwt token을 프론트에 보낸다.
-    const userToken = await userService.getUserToken({ email, password });
+    const userToken = await userService.getUserToken({ userEmail, userPassword });
 
     // 만료 시간을 임의로 정해준다. 24시간 * 3일
     const expiryDate = new Date(Date.now() + 60 * 60 * 1000 * 24 * 3);
@@ -83,7 +83,7 @@ userRouter.get('/user/logout', async function (req, res, next) {
 
 // 사용자 정보 수정, /users/edit/abc12345 로 요청하면 req.params.userId는 'abc12345' 문자열이 된다.
 userRouter.patch(
-  '/user/{email}',
+  '/user/{userId}',
   loginRequired,
   async function (req, res, next) {
     try {

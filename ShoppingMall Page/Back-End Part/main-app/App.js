@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const { PORT, MONGO_URI } = process.env;
+const { BACK_PORT, MONGO_URI } = process.env;
 
 mongoose
   .set('strictQuery', true)
@@ -22,6 +22,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', userRouter);
 
-app.listen(PORT, () => {
-  console.log(`server is listening at localhost:${PORT}`);
+app.listen(BACK_PORT || 8080, () => {
+  console.log(`server is listening at localhost:${BACK_PORT}`);
 });
