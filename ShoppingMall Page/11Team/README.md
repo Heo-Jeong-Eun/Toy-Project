@@ -1,8 +1,7 @@
 # 11Team
 
-<br>
 
-## Commit Rule 
+### ☑️ Commit Rule 
 - **`master` <- `dev` <- `front`, `back` <- `member name`**
 - `master` 는 대표자 1명이 관리
 - `dev` 는 `front`와 `back`을 합치는 devloper branch
@@ -11,15 +10,14 @@
     - ex) `member name` -> `front`
 - 파트별로 작업이 끝나면 `dev` branch로 merge 한다. 
 
-<br>
 
-## Commit Guide
+### ☑️ Commit Guide
+```vim
 - 제목
-    - `Feat : 2023-01-31 member name Add Login`
-- 본문 내용 
-    - `로그인 기능을 추가했습니다.`   
-
-<br>
+    Feat : 2023-01-31 member name Add Login
+- 본문  
+    로그인 기능을 추가했습니다.
+```
 
 - **Commit Message Type**
     - Feat : 새로운 기능 추가, 기존의 기능을 요구 사항에 맞추어 수정
@@ -41,4 +39,4 @@
     5. **제목**은 **명령문**으로, **과거형으로 작성하지 않는다.**
     6. **본문** 각행은 **72행 이내,** **줄바꿈**을 사용해 작성한다.
     7. **본문**은 어떻게 보다는 **무엇을, 왜**에 대하여 설명한다.
-        - 제목은 git GUI에서 bold로 표시되고, 터미널 여러 상황에서 자주 노출된다.
+        - 제목은 git GUI에서 bold로 표시되고, 터미널 여러 상황에서 자주 노출 된다.
